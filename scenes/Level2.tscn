@@ -708,6 +708,7 @@ target_level = ExtResource("5_jjaf3")
 
 [node name="CharacterBody2D" parent="SceneElements" instance=ExtResource("5_ijrg8")]
 position = Vector2(28, 103)
+move_speed = 400
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

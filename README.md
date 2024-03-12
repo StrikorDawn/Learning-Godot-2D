@@ -18,9 +18,12 @@ journey as a Game Dev.
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
 * [Good Jump Code](https://www.youtube.com/watch?v=IOe1aGY6hXA)
 * [Godot Documentation](https://docs.godotengine.org/en/stable/)
+* [The Ultimate Controler](https://www.youtube.com/watch?v=3sWTzMsmdx8)
+* [Variable Jump Height](https://www.youtube.com/watch?v=eXmx3SQ_wBo)
+* [Coyote Time](https://www.youtube.com/watch?v=4Vhcqh9S2LM)
+* [Jump Buffer](https://www.youtube.com/watch?v=hRQW580zEJE)
 
 # Future Work
 

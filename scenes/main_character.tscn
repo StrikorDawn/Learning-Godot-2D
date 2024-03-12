@@ -257,10 +257,6 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(48, 560)
 script = ExtResource("1_fdxrb")
-move_speed = 450.0
-jump_height = 150.0
-jump_time_to_peak = 0.5
-jump_time_to_descent = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 2)
@@ -274,3 +270,10 @@ position_smoothing_speed = 7.0
 sprite_frames = SubResource("SpriteFrames_h2g3g")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Coyote_Timer" type="Timer" parent="."]
+
+[node name="Jump_Buffer_Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Coyote_Timer" to="." method="coyote_timeout"]
+[connection signal="timeout" from="Jump_Buffer_Timer" to="." method="on_jump_buffer_timeout"]

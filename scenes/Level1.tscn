@@ -707,6 +707,7 @@ position = Vector2(3889, 96)
 target_level = ExtResource("5_4eauc")
 
 [node name="CharacterBody2D" parent="SceneElements" instance=ExtResource("5_sqr0e")]
+move_speed = 400
 jump_time_to_descent = 0.3
 
 [node name="GameManager" type="Node" parent="."]
