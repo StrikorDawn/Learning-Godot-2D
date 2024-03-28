@@ -1,31 +1,15 @@
-[gd_scene load_steps=46 format=3 uid="uid://cdqy1y3n0k3ky"]
+[gd_scene load_steps=40 format=3 uid="uid://cdqy1y3n0k3ky"]
 
-[ext_resource type="Script" path="res://scripts/main_character.gd" id="1_leu2n"]
+[ext_resource type="Script" path="res://scripts/test.gd" id="1_1a1q0"]
 [ext_resource type="Texture2D" uid="uid://b7ich36h2fwev" path="res://assets/MainCharacter/Jump (32x32).png" id="2_17bvp"]
 [ext_resource type="Texture2D" uid="uid://dh1hdmgcmcotm" path="res://assets/MainCharacter/Fall (32x32).png" id="2_djnfn"]
-[ext_resource type="Texture2D" uid="uid://dorwee15pef4o" path="res://assets/MainCharacter/Double Jump (32x32).png" id="2_lwi2h"]
 [ext_resource type="Texture2D" uid="uid://clhslvg4js5ee" path="res://assets/MainCharacter/Idle (32x32).png" id="2_sabxq"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="2_xvgli"]
 [ext_resource type="Texture2D" uid="uid://dalox85fhmdpf" path="res://assets/MainCharacter/Hit (32x32).png" id="3_s8p0a"]
 [ext_resource type="Texture2D" uid="uid://bbvhplvvk3jbn" path="res://assets/MainCharacter/Run (32x32).png" id="6_sdrj1"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkyfi"]
-height = 28.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l8lll"]
-atlas = ExtResource("3_s8p0a")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gff2c"]
-atlas = ExtResource("2_lwi2h")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dgqhv"]
-atlas = ExtResource("2_lwi2h")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wk5tm"]
-atlas = ExtResource("2_lwi2h")
-region = Rect2(160, 0, 32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vh54u"]
+size = Vector2(21, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ani1"]
 atlas = ExtResource("3_s8p0a")
@@ -151,23 +135,6 @@ region = Rect2(352, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l8lll")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gff2c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dgqhv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wk5tm")
-}],
-"loop": true,
-"name": &"death",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("2_djnfn")
 }],
 "loop": true,
@@ -288,54 +255,33 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnyb1"]
-size = Vector2(22, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flpnh"]
-size = Vector2(26, 5)
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(48, 560)
-script = ExtResource("1_leu2n")
+script = ExtResource("1_1a1q0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 2)
-shape = SubResource("CapsuleShape2D_lkyfi")
+shape = SubResource("RectangleShape2D_vh54u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.25, 1.25)
 limit_left = 0
 limit_top = 0
-limit_right = 4032
 limit_bottom = 648
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
+script = ExtResource("2_xvgli")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h2g3g")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.117236
 
 [node name="Coyote_Timer" type="Timer" parent="."]
 
 [node name="Jump_Buffer_Timer" type="Timer" parent="."]
 
-[node name="Hitbox" type="Area2D" parent="."]
-disable_mode = 1
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("RectangleShape2D_qnyb1")
-
-[node name="Feet" type="Area2D" parent="."]
-disable_mode = 1
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
-position = Vector2(0, 14.5)
-shape = SubResource("RectangleShape2D_flpnh")
+[node name="Death_Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Coyote_Timer" to="." method="coyote_timeout"]
 [connection signal="timeout" from="Jump_Buffer_Timer" to="." method="on_jump_buffer_timeout"]
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -193,6 +193,6 @@ stream = ExtResource("4_ny6jv")
 
 [node name="Collectable" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gx8b8")
-animation = &"collected"
+animation = &"banana"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

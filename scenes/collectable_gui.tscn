@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm3k2f8g4b1n0"]
+
+[ext_resource type="Script" path="res://scripts/collectable_gui.gd" id="1_re8nn"]
+
+[node name="Collectable GUI" type="CanvasLayer"]
+script = ExtResource("1_re8nn")
+
+[node name="Coins" type="Label" parent="."]
+texture_filter = 1
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 44.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 18
+text = "Collectables: "
+
+[node name="Lives" type="Label" parent="."]
+offset_left = 161.0
+offset_top = 2.0
+offset_right = 215.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 18
+text = "Lives: "

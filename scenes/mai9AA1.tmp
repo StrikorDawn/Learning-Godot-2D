@@ -322,15 +322,14 @@ frame_progress = 0.117236
 [node name="Jump_Buffer_Timer" type="Timer" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="."]
-disable_mode = 1
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_qnyb1")
 
 [node name="Feet" type="Area2D" parent="."]
-disable_mode = 1
-collision_mask = 2
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Feet"]
 position = Vector2(0, 14.5)

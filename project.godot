@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://assets/MainCharacter/Jump (32x32).png"
 config/size/mode=0
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+
 [display]
 
 window/size/mode=2
@@ -56,4 +60,4 @@ jump={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.34902, 0.635294, 1, 1)

@@ -297,6 +297,13 @@ size = Vector2(26, 5)
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(48, 560)
 script = ExtResource("1_leu2n")
+move_speed = null
+jump_height = null
+jump_time_to_peak = null
+jump_time_to_descent = null
+coyote_time = null
+jump_buffer_time = null
+fall_clamp = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 2)
