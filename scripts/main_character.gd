@@ -105,6 +105,8 @@ func die():
 	if 	Global.lives > 0:
 		get_tree().reload_current_scene()
 	else:
+		Global.lives = 3
+		Global.total_collected = 0
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func death_movement():

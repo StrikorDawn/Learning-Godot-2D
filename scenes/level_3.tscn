@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://24cbe0scofs5"]
+[gd_scene load_steps=12 format=3 uid="uid://24cbe0scofs5"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_jnxek"]
 [ext_resource type="Texture2D" uid="uid://bc8h328hcik64" path="res://assets/Terrain (16x16).png" id="2_phq6j"]
 [ext_resource type="PackedScene" uid="uid://cdqy1y3n0k3ky" path="res://scenes/main_character.tscn" id="3_ymnlr"]
 [ext_resource type="PackedScene" uid="uid://bm3k2f8g4b1n0" path="res://scenes/collectable_gui.tscn" id="4_qfqmm"]
 [ext_resource type="PackedScene" uid="uid://n1oqfsyekg1w" path="res://scenes/end_level.tscn" id="5_jg7dv"]
+[ext_resource type="PackedScene" uid="uid://d1als5gt2u0r0" path="res://scenes/collectable.tscn" id="5_wj0ko"]
 [ext_resource type="PackedScene" uid="uid://desgtl00eq36b" path="res://scenes/main_menu.tscn" id="6_im5b0"]
+[ext_resource type="PackedScene" uid="uid://bo04dfon4h36a" path="res://scenes/enemy.tscn" id="8_6ondq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gx2jo"]
 texture = ExtResource("2_phq6j")
@@ -568,10 +570,82 @@ shape = SubResource("RectangleShape2D_2egn4")
 
 [node name="Collectables" type="Node" parent="."]
 
+[node name="Banana" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(601, 487)
+
+[node name="Banana2" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(647, 487)
+
+[node name="Banana3" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(857, 529)
+
+[node name="Banana4" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(953, 485)
+
+[node name="Banana5" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(1049, 522)
+
+[node name="Banana6" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(1420, 522)
+
+[node name="Banana7" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(1457, 524)
+
+[node name="Banana8" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(1699, 468)
+
+[node name="Banana9" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(2041, 503)
+
+[node name="Banana10" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(2215, 424)
+
+[node name="Banana11" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(2626, 475)
+
+[node name="Banana12" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(2659, 475)
+
+[node name="Banana13" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(3093, 503)
+
+[node name="Banana14" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(3174, 506)
+
+[node name="Banana15" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(3536, 571)
+
+[node name="Banana16" parent="Collectables" instance=ExtResource("5_wj0ko")]
+position = Vector2(3744, 573)
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="End Level" parent="." instance=ExtResource("5_jg7dv")]
 position = Vector2(3938, 561)
 target_level = ExtResource("6_im5b0")
+
+[node name="Enemy" parent="." instance=ExtResource("8_6ondq")]
+position = Vector2(421, 575)
+
+[node name="Enemy2" parent="." instance=ExtResource("8_6ondq")]
+position = Vector2(838, 576)
+
+[node name="Enemy3" parent="." instance=ExtResource("8_6ondq")]
+position = Vector2(1093, 576)
+
+[node name="Enemy4" parent="." instance=ExtResource("8_6ondq")]
+position = Vector2(1702, 480)
+
+[node name="Enemy5" parent="." instance=ExtResource("8_6ondq")]
+position = Vector2(2246, 433)
+
+[node name="Enemy6" parent="." instance=ExtResource("8_6ondq")]
+position = Vector2(2070, 513)
+
+[node name="Enemy7" parent="." instance=ExtResource("8_6ondq")]
+position = Vector2(3890, 576)
+
+[node name="Enemy8" parent="." instance=ExtResource("8_6ondq")]
+position = Vector2(3766, 575)
 
 [connection signal="body_entered" from="pit" to="." method="_on_pit_body_entered"]
